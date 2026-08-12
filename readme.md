@@ -48,6 +48,10 @@ This mode combines the previous two steps and directly converts garbled English-
 
 This project consists of a single HTML file. After downloading or cloning the repository, open `index.html` in a modern web browser.
 
+```bash
+git clone https://github.com/jenchu-begdev/input-method-garble-fixer-zh.git
+```
+
 接著在瀏覽器中開啟 `index.html`。
 
 Then open `index.html` in your browser.
