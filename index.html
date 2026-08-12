@@ -1,0 +1,2170 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<script data-goatcounter="https://gitjenchu.goatcounter.com/count"
+        async src="//gc.zgo.at/count.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>錯誤輸入法轉換器 | 免費線上英數亂碼修復與注音轉中文字工具</title>
+  <meta name="description" content="不小心用英數模式打出 su3 cl4p 等注音亂碼？本工具提供免費線上英數亂碼修復、注音轉中文字，並整合 AI 錯別字精準校對助理。無障礙、免安裝、即時修復！" />
+  <meta name="keywords" content="英數亂碼修復,注音打成英文,錯誤輸入法轉換,打了一堆亂碼,注音亂碼,英文打成注音,su3 cl4p,鍵位還原,注音轉中文字,錯別字校對" />
+  <meta name="author" content="錯誤輸入法轉換器" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="theme-color" content="#0d0f1a" />
+
+  <!-- Open Graph / Facebook / LINE 社群分享標籤 (不在畫面上顯示) -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="zh_TW" />
+  <meta property="og:site_name" content="錯誤輸入法轉換器" />
+  <meta property="og:title" content="錯誤輸入法轉換器 | 免費線上英數亂碼修復與注音轉中文字工具" />
+  <meta property="og:description" content="不小心用英數模式打出一堆亂碼？本工具協助您一鍵還原英數亂碼為正確注音或中文字，並具備 AI 錯別字精準校對功能。免費線上使用。" />
+
+  <!-- Twitter / X 卡片標籤 (不在畫面上顯示) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="錯誤輸入法轉換器 | 免費線上英數亂碼修復與注音轉中文字工具" />
+  <meta name="twitter:description" content="不小心用英數模式打出一堆亂碼？本工具協助您一鍵還原英數亂碼為正確注音或中文字，並具備 AI 錯別字精準校對功能。" />
+
+  <!-- Google 搜尋結構化資料 Schema (JSON-LD，不在畫面上顯示) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "錯誤輸入法轉換器",
+    "alternateName": ["注音亂碼修復工具", "Bopomofo Garbled Text Converter"],
+    "description": "提供英數亂碼還原注音、注音轉中文字、一鍵亂碼轉國字以及 AI 錯別字精準校對等功能之免費無障礙線上工具。",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "All",
+    "inLanguage": "zh-TW",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "TWD"
+    },
+    "featureList": [
+      "英數亂碼轉注音符號",
+      "注音符號轉中文字",
+      "英數亂碼一鍵轉中文字",
+      "AI 同音錯別字精準校對引導",
+      "無障礙 WCAG 2.1 規範支援"
+    ]
+  }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* ===== CSS Reset & Base ===== */
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --bg-primary: #0d0f1a;
+      --bg-secondary: #13162a;
+      --bg-card: #181c35;
+      --bg-card-hover: #1e2340;
+      --bg-glass: rgba(255, 255, 255, 0.04);
+      --bg-glass-hover: rgba(255, 255, 255, 0.07);
+
+      --accent-primary: #6c63ff;
+      --accent-secondary: #48e5c2;
+      --accent-tertiary: #ff6b9d;
+      --accent-warm: #ffd166;
+
+      --gradient-main: linear-gradient(135deg, #6c63ff 0%, #48e5c2 100%);
+      --gradient-card: linear-gradient(145deg, rgba(108,99,255,0.15) 0%, rgba(72,229,194,0.08) 100%);
+      --gradient-title: linear-gradient(90deg, #6c63ff, #48e5c2, #ff6b9d);
+
+      --text-primary: #f0f2ff;
+      --text-secondary: #9ba3c9;
+      --text-muted: #5b6285;
+      --text-accent: #6c63ff;
+
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --border-accent: rgba(108, 99, 255, 0.4);
+      --border-glow: rgba(72, 229, 194, 0.3);
+
+      --shadow-card: 0 8px 40px rgba(0, 0, 0, 0.4), 0 2px 8px rgba(0, 0, 0, 0.3);
+      --shadow-glow: 0 0 40px rgba(108, 99, 255, 0.15);
+      --shadow-btn: 0 4px 20px rgba(108, 99, 255, 0.4);
+
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 28px;
+
+      --font-main: 'Inter', 'Noto Sans TC', sans-serif;
+      --font-zh: 'Noto Sans TC', sans-serif;
+
+      --transition-fast: 0.18s ease;
+      --transition-mid: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      --transition-slow: 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    html {
+      scroll-behavior: smooth;
+      font-size: 16px;
+    }
+
+    body {
+      font-family: var(--font-main);
+      background-color: var(--bg-primary);
+      color: var(--text-primary);
+      min-height: 100vh;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ===== Background Decoration ===== */
+    body::before {
+      content: '';
+      position: fixed;
+      top: -30%;
+      left: -20%;
+      width: 70%;
+      height: 70%;
+      background: radial-gradient(ellipse at center, rgba(108, 99, 255, 0.12) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::after {
+      content: '';
+      position: fixed;
+      bottom: -20%;
+      right: -15%;
+      width: 60%;
+      height: 60%;
+      background: radial-gradient(ellipse at center, rgba(72, 229, 194, 0.08) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ===== Layout ===== */
+    .page-wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px 80px;
+    }
+
+    /* ===== Header ===== */
+    .site-header {
+      padding: 48px 0 36px;
+      text-align: center;
+    }
+
+    .logo-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--bg-glass);
+      border: 1px solid var(--border-subtle);
+      border-radius: 50px;
+      padding: 8px 20px;
+      margin-bottom: 28px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--text-secondary);
+      backdrop-filter: blur(10px);
+    }
+
+    .logo-badge .dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent-secondary);
+      animation: pulse-dot 2s infinite;
+    }
+
+    @keyframes pulse-dot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.5; transform: scale(0.8); }
+    }
+
+    .site-title {
+      font-size: clamp(1.9rem, 5vw, 2.9rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+      background: var(--gradient-title);
+      background-size: 200% 200%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: gradient-shift 6s ease infinite;
+    }
+
+    @keyframes gradient-shift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .site-subtitle {
+      font-size: 1.05rem;
+      color: var(--text-secondary);
+      max-width: 580px;
+      margin: 0 auto;
+      font-weight: 300;
+      font-family: var(--font-zh);
+    }
+
+    /* ===== Tab Navigation ===== */
+    .tab-nav {
+      display: flex;
+      gap: 8px;
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 6px;
+      margin: 36px 0 32px;
+      position: relative;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 12px 20px;
+      border: none;
+      background: transparent;
+      color: var(--text-muted);
+      font-family: var(--font-main);
+      font-size: 0.92rem;
+      font-weight: 500;
+      border-radius: var(--radius-lg);
+      cursor: pointer;
+      transition: all var(--transition-mid);
+      position: relative;
+      z-index: 1;
+      white-space: nowrap;
+    }
+
+    .tab-btn:hover {
+      color: var(--text-primary);
+      background: var(--bg-glass-hover);
+    }
+
+    .tab-btn.active {
+      background: var(--gradient-main);
+      color: #fff;
+      box-shadow: var(--shadow-btn);
+      font-weight: 600;
+    }
+
+    /* ===== Tab Panels ===== */
+    .tab-panel {
+      display: none;
+      animation: fade-in-up 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .tab-panel.active {
+      display: block;
+    }
+
+    @keyframes fade-in-up {
+      from { opacity: 0; transform: translateY(16px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ===== Card ===== */
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-xl);
+      padding: 36px;
+      box-shadow: var(--shadow-card);
+      position: relative;
+      overflow: hidden;
+      transition: border-color var(--transition-mid);
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--gradient-card);
+      pointer-events: none;
+      border-radius: inherit;
+    }
+
+    .card:hover {
+      border-color: var(--border-accent);
+    }
+
+    .card-inner {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ===== Section Label ===== */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+    }
+
+    .section-label::before {
+      content: '';
+      display: block;
+      width: 3px;
+      height: 14px;
+      border-radius: 2px;
+      background: var(--gradient-main);
+      flex-shrink: 0;
+    }
+
+    /* ===== Textarea ===== */
+    .input-group {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+
+    .input-label {
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--text-secondary);
+      font-family: var(--font-zh);
+    }
+
+    .styled-textarea {
+      width: 100%;
+      min-height: 140px;
+      padding: 16px 18px;
+      background: rgba(0, 0, 0, 0.3);
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      color: var(--text-primary);
+      font-family: 'Inter', 'Courier New', monospace;
+      font-size: 1rem;
+      line-height: 1.7;
+      resize: vertical;
+      transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+      outline: none;
+    }
+
+    .styled-textarea::placeholder {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+    }
+
+    .styled-textarea:focus {
+      border-color: var(--accent-primary);
+      box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.18);
+    }
+
+    /* ===== Button ===== */
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      padding: 13px 32px;
+      background: var(--gradient-main);
+      color: #fff;
+      font-family: var(--font-main);
+      font-size: 0.97rem;
+      font-weight: 600;
+      border: none;
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      box-shadow: var(--shadow-btn);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+      letter-spacing: 0.02em;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(108, 99, 255, 0.55);
+      filter: brightness(1.1);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+      box-shadow: var(--shadow-btn);
+    }
+
+    .btn-primary svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+    }
+
+    .btn-secondary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 22px;
+      background: var(--bg-glass);
+      color: var(--text-secondary);
+      font-family: var(--font-main);
+      font-size: 0.88rem;
+      font-weight: 500;
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+      backdrop-filter: blur(6px);
+    }
+
+    .btn-secondary:hover {
+      background: var(--bg-glass-hover);
+      color: var(--text-primary);
+      border-color: var(--border-accent);
+    }
+
+    .btn-secondary svg {
+      width: 15px;
+      height: 15px;
+    }
+
+    .btn-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    /* ===== Result Area ===== */
+    .result-section {
+      margin-top: 32px;
+    }
+
+    .result-title {
+      font-family: var(--font-zh);
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .result-title .icon-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: var(--gradient-main);
+      border-radius: 8px;
+      font-size: 0.85rem;
+    }
+
+    .result-box {
+      background: rgba(0, 0, 0, 0.35);
+      border: 1.5px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 20px 22px;
+      min-height: 80px;
+      display: flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 4px 6px;
+      transition: border-color var(--transition-mid);
+      position: relative;
+    }
+
+    .result-box.has-content {
+      border-color: var(--border-glow);
+      box-shadow: 0 0 20px rgba(72, 229, 194, 0.08);
+    }
+
+    .result-placeholder {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-family: var(--font-zh);
+      line-height: 1.7;
+      align-self: center;
+    }
+
+    /* ===== Bopomofo Tokens ===== */
+    .bpmf-token {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--bg-glass);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 4px 10px;
+      font-size: 1.1rem;
+      font-family: var(--font-zh);
+      color: var(--accent-secondary);
+      font-weight: 500;
+      transition: all var(--transition-fast);
+      cursor: default;
+      animation: token-appear 0.25s ease forwards;
+      opacity: 0;
+    }
+
+    @keyframes token-appear {
+      from { opacity: 0; transform: scale(0.85) translateY(4px); }
+      to   { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .bpmf-token:hover {
+      background: rgba(72, 229, 194, 0.12);
+      border-color: var(--accent-secondary);
+      transform: translateY(-2px);
+    }
+
+    .bpmf-token.tone {
+      color: var(--accent-warm);
+      border-color: rgba(255, 209, 102, 0.2);
+      font-size: 1rem;
+    }
+
+    .bpmf-token.space-token {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+      background: rgba(255,255,255,0.03);
+      border-style: dashed;
+      padding: 4px 14px;
+    }
+
+    .bpmf-token.unknown {
+      color: var(--accent-tertiary);
+      border-color: rgba(255, 107, 157, 0.25);
+      background: rgba(255, 107, 157, 0.06);
+    }
+
+    .result-raw {
+      margin-top: 14px;
+      padding: 12px 16px;
+      background: rgba(0,0,0,0.2);
+      border-radius: var(--radius-sm);
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-family: 'Inter', monospace;
+      display: none;
+      word-break: break-all;
+    }
+
+    .result-raw.visible {
+      display: block;
+    }
+
+    /* ===== Copy Toast ===== */
+    .toast {
+      position: fixed;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: var(--bg-card);
+      border: 1px solid var(--border-accent);
+      border-radius: 50px;
+      padding: 12px 26px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      color: var(--accent-secondary);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1000;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* ===== Reference Table ===== */
+    .ref-toggle {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: none;
+      border: none;
+      color: var(--text-secondary);
+      font-family: var(--font-main);
+      font-size: 0.85rem;
+      cursor: pointer;
+      padding: 6px 0;
+      margin-top: 16px;
+      transition: color var(--transition-fast);
+    }
+
+    .ref-toggle:hover {
+      color: var(--accent-primary);
+    }
+
+    .ref-toggle svg {
+      width: 14px;
+      height: 14px;
+      transition: transform var(--transition-fast);
+    }
+
+    .ref-toggle.open svg {
+      transform: rotate(180deg);
+    }
+
+    .ref-table-wrap {
+      display: none;
+      margin-top: 16px;
+      background: rgba(0,0,0,0.25);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      padding: 20px;
+      animation: fade-in-up 0.3s ease;
+    }
+
+    .ref-table-wrap.open {
+      display: block;
+    }
+
+    .ref-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+      gap: 8px;
+    }
+
+    .ref-item {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      background: var(--bg-glass);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-sm);
+      padding: 7px 10px;
+      font-size: 0.88rem;
+    }
+
+    .ref-key {
+      font-family: 'Inter', monospace;
+      font-weight: 600;
+      color: var(--accent-primary);
+    }
+
+    .ref-arrow {
+      color: var(--text-muted);
+      font-size: 0.75rem;
+    }
+
+    .ref-value {
+      font-family: var(--font-zh);
+      color: var(--accent-secondary);
+      font-weight: 500;
+    }
+
+    .ref-item.tone-item .ref-value {
+      color: var(--accent-warm);
+    }
+
+    /* ===== Candidate character tokens (Feature 2) ===== */
+    .hanzi-syllable-group {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      padding: 8px 6px;
+      background: var(--bg-glass);
+      border: 1px solid var(--border-subtle);
+      border-radius: var(--radius-md);
+      min-width: 64px;
+      transition: border-color var(--transition-fast);
+      animation: token-appear 0.25s ease forwards;
+      opacity: 0;
+    }
+
+    .hanzi-syllable-group:hover {
+      border-color: var(--border-accent);
+    }
+
+    .hanzi-syllable-label {
+      font-size: 0.72rem;
+      font-family: var(--font-zh);
+      color: var(--text-muted);
+      letter-spacing: 0.03em;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .hanzi-candidates {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      justify-content: center;
+    }
+
+    .hanzi-token {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 34px;
+      height: 34px;
+      border-radius: var(--radius-sm);
+      background: rgba(108, 99, 255, 0.1);
+      border: 1px solid rgba(108, 99, 255, 0.22);
+      font-size: 1.1rem;
+      font-family: var(--font-zh);
+      color: var(--text-primary);
+      font-weight: 500;
+      cursor: default;
+      transition: all var(--transition-fast);
+      user-select: none;
+    }
+
+    .hanzi-tone-badge {
+      font-size: 0.7rem;
+      font-family: var(--font-zh);
+      color: var(--accent-warm);
+      background: rgba(255, 209, 102, 0.1);
+      border: 1px solid rgba(255, 209, 102, 0.2);
+      border-radius: 4px;
+      padding: 1px 5px;
+      text-align: center;
+      width: 100%;
+    }
+
+    .hanzi-unknown {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4px 10px;
+      background: rgba(255, 107, 157, 0.07);
+      border: 1px solid rgba(255, 107, 157, 0.25);
+      border-radius: var(--radius-sm);
+      font-size: 1rem;
+      font-family: var(--font-zh);
+      color: var(--accent-tertiary);
+      animation: token-appear 0.25s ease forwards;
+      opacity: 0;
+    }
+
+    .result-box.hanzi-mode {
+      gap: 8px 10px;
+      align-items: flex-start;
+    }
+
+    /* ===== Dictionary Loading Status ===== */
+    .dict-status {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      background: rgba(108, 99, 255, 0.08);
+      border: 1px solid rgba(108, 99, 255, 0.2);
+      border-radius: var(--radius-md);
+      margin-bottom: 20px;
+      font-size: 0.84rem;
+      font-family: var(--font-zh);
+      color: var(--text-secondary);
+      transition: all var(--transition-mid);
+    }
+
+    .dict-status.loading {
+      border-color: rgba(108, 99, 255, 0.3);
+      background: rgba(108, 99, 255, 0.08);
+    }
+
+    .dict-status.ready {
+      border-color: rgba(72, 229, 194, 0.3);
+      background: rgba(72, 229, 194, 0.06);
+      color: var(--accent-secondary);
+    }
+
+    .dict-status.error {
+      border-color: rgba(255, 107, 157, 0.3);
+      background: rgba(255, 107, 157, 0.06);
+      color: var(--accent-tertiary);
+    }
+
+    .dict-spinner {
+      width: 16px;
+      height: 16px;
+      border: 2px solid rgba(108, 99, 255, 0.3);
+      border-top-color: var(--accent-primary);
+      border-radius: 50%;
+      animation: dict-spin 0.8s linear infinite;
+      flex-shrink: 0;
+    }
+
+    @keyframes dict-spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .dict-progress {
+      flex: 1;
+      height: 3px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+
+    .dict-progress-bar {
+      height: 100%;
+      background: var(--gradient-main);
+      border-radius: 2px;
+      width: 0%;
+      transition: width 0.4s ease;
+    }
+
+    .btn-primary:disabled,
+    .btn-primary[aria-disabled="true"] {
+      opacity: 0.4;
+      cursor: not-allowed;
+      filter: none;
+      transform: none;
+      box-shadow: none;
+    }
+
+    /* ===== Gem Proofread Guidance Card ===== */
+    .gem-card {
+      margin-top: 20px;
+      padding: 20px 24px;
+      background: linear-gradient(135deg, rgba(108, 99, 255, 0.08) 0%, rgba(72, 229, 194, 0.05) 100%);
+      border: 1px solid rgba(108, 99, 255, 0.25);
+      border-radius: var(--radius-lg);
+      backdrop-filter: blur(8px);
+      animation: fade-in-up 0.4s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+    }
+
+    .gem-card-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .gem-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      background: rgba(255, 107, 157, 0.15);
+      border: 1px solid rgba(255, 107, 157, 0.3);
+      border-radius: 50px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      color: var(--accent-tertiary);
+      letter-spacing: 0.05em;
+      margin-bottom: 8px;
+    }
+
+    .gem-desc {
+      font-size: 0.92rem;
+      color: var(--text-secondary);
+      font-family: var(--font-zh);
+      line-height: 1.75;
+    }
+
+    .gem-desc strong {
+      color: var(--accent-secondary);
+      font-weight: 600;
+    }
+
+    .gem-action {
+      display: flex;
+      align-items: center;
+      margin-top: 4px;
+    }
+
+    .btn-gem {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 11px 26px;
+      background: linear-gradient(135deg, #6c63ff 0%, #ff6b9d 100%);
+      color: #ffffff;
+      font-family: var(--font-main);
+      font-size: 0.95rem;
+      font-weight: 600;
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      box-shadow: 0 4px 18px rgba(255, 107, 157, 0.35);
+      transition: transform var(--transition-fast), box-shadow var(--transition-fast), filter var(--transition-fast);
+      cursor: pointer;
+    }
+
+    .btn-gem:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 24px rgba(255, 107, 157, 0.5);
+      filter: brightness(1.08);
+      color: #ffffff;
+    }
+
+    .btn-gem:active {
+      transform: translateY(0);
+    }
+
+    .btn-gem svg {
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+    }
+
+    .gem-notice {
+      font-size: 0.84rem;
+      color: var(--accent-warm);
+      font-family: var(--font-zh);
+      background: rgba(255, 209, 102, 0.08);
+      border: 1px dashed rgba(255, 209, 102, 0.3);
+      border-radius: var(--radius-sm);
+      padding: 8px 14px;
+      margin-top: 2px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      line-height: 1.5;
+    }
+
+    /* ===== Footer ===== */
+    .site-footer {
+      text-align: center;
+      margin-top: 60px;
+      padding: 24px 0 0;
+      border-top: 1px solid var(--border-subtle);
+      color: var(--text-muted);
+      font-size: 0.82rem;
+      font-family: var(--font-zh);
+    }
+
+    /* ===== Responsive ===== */
+    @media (max-width: 600px) {
+      .card {
+        padding: 24px 18px;
+      }
+      .tab-btn {
+        font-size: 0.82rem;
+        padding: 10px 12px;
+      }
+      .ref-grid {
+        grid-template-columns: repeat(auto-fill, minmax(68px, 1fr));
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== Toast ===== -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+  <div class="page-wrapper">
+
+    <!-- ===== Header ===== -->
+    <header class="site-header">
+      <div class="logo-badge">
+        <span class="dot"></span>
+        無障礙線上工具
+      </div>
+      <h1 class="site-title">錯誤輸入法轉換器</h1>
+      <p class="site-subtitle">
+        不小心在英數模式下打了注音？<br />
+        將亂碼一鍵還原成正確的注音符號或中文字。
+      </p>
+    </header>
+
+    <!-- ===== Tab Navigation ===== -->
+    <nav class="tab-nav" role="tablist" aria-label="功能切換">
+      <button
+        class="tab-btn active"
+        id="tab-btn-1"
+        role="tab"
+        aria-selected="true"
+        aria-controls="panel-1"
+        onclick="switchTab(1)"
+      >
+        🔤 亂碼 → 注音
+      </button>
+      <button
+        class="tab-btn"
+        id="tab-btn-2"
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-2"
+        onclick="switchTab(2)"
+      >
+        🀄 注音 → 中文字
+      </button>
+      <button
+        class="tab-btn"
+        id="tab-btn-3"
+        role="tab"
+        aria-selected="false"
+        aria-controls="panel-3"
+        onclick="switchTab(3)"
+      >
+        🔣 亂碼 → 中文字
+      </button>
+    </nav>
+
+    <!-- ===== Panel 1: 亂碼 → 注音 ===== -->
+    <section
+      class="tab-panel active"
+      id="panel-1"
+      role="tabpanel"
+      aria-labelledby="tab-btn-1"
+    >
+      <div class="card">
+        <div class="card-inner">
+          <p class="section-label">功能一：英數亂碼 → 注音符號</p>
+
+          <!-- Input -->
+          <div class="input-group">
+            <label class="input-label" for="garbled-input">
+              請在下方輸入您因為輸入法切換錯誤而打出的英文亂碼：
+            </label>
+            <textarea
+              class="styled-textarea"
+              id="garbled-input"
+              placeholder="例如：su3 cl4p（即「你好嗎」的注音鍵位）"
+              aria-label="亂碼輸入框"
+              autocomplete="off"
+              autocorrect="off"
+              autocapitalize="off"
+              spellcheck="false"
+            ></textarea>
+          </div>
+
+          <!-- Buttons -->
+          <div class="btn-row">
+            <button
+              class="btn-primary"
+              id="convert-btn-1"
+              onclick="convertToBopomofo()"
+              aria-label="將亂碼轉換為注音符號"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+              轉換
+            </button>
+            <button
+              class="btn-secondary"
+              onclick="clearInput1()"
+              aria-label="清除輸入內容"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/>
+              </svg>
+              清除
+            </button>
+          </div>
+
+          <!-- Reference Table Toggle -->
+          <button
+            class="ref-toggle"
+            id="ref-toggle-btn"
+            onclick="toggleRefTable()"
+            aria-expanded="false"
+            aria-controls="ref-table"
+          >
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+            查看完整對照表
+          </button>
+          <div class="ref-table-wrap" id="ref-table" aria-hidden="true">
+            <div class="ref-grid" id="ref-grid-content"></div>
+          </div>
+
+          <!-- Result -->
+          <div class="result-section" aria-live="polite" aria-atomic="true">
+            <h2 class="result-title">
+              <span class="icon-badge" aria-hidden="true">ㄅ</span>
+              注音轉換結果
+            </h2>
+            <div class="result-box" id="result-box-1" aria-label="注音轉換結果區域">
+              <span class="result-placeholder" id="result-placeholder-1">
+                轉換後的注音符號將顯示於此…
+              </span>
+            </div>
+            <div class="result-raw" id="result-raw-1" aria-label="純文字結果"></div>
+            <div class="btn-row" style="margin-top:12px; display:none;" id="copy-row-1">
+              <button
+                class="btn-secondary"
+                onclick="copyResult(1)"
+                aria-label="複製注音轉換結果"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+                複製結果
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Panel 2: 注音 → 中文字 ===== -->
+    <section
+      class="tab-panel"
+      id="panel-2"
+      role="tabpanel"
+      aria-labelledby="tab-btn-2"
+    >
+      <div class="card">
+        <div class="card-inner">
+          <p class="section-label">功能二：注音符號 → 中文字</p>
+
+          <!-- Dictionary Loading Status -->
+          <div class="dict-status loading" id="dict-status-2" role="status" aria-live="polite">
+            <div class="dict-spinner" id="dict-spinner-2" aria-hidden="true"></div>
+            <span id="dict-status-text-2">正在載入新酷音字典（libchewing）…</span>
+            <div class="dict-progress" aria-hidden="true">
+              <div class="dict-progress-bar" id="dict-progress-bar-2"></div>
+            </div>
+          </div>
+
+          <!-- Input -->
+          <div class="input-group">
+            <label class="input-label" for="bpmf-input">
+              請在下方輸入注音符號（可直接貼上功能一的結果，或自行輸入注音＋聲調）：
+            </label>
+            <textarea
+              class="styled-textarea"
+              id="bpmf-input"
+              placeholder="例如：ㄋㄧˇ ㄏㄠˇ ㄇㄚ（一聲）"
+              aria-label="注音輸入框"
+              autocomplete="off"
+              autocorrect="off"
+              autocapitalize="off"
+              spellcheck="false"
+            ></textarea>
+          </div>
+
+          <!-- Buttons -->
+          <div class="btn-row">
+            <button
+              class="btn-primary"
+              id="convert-btn-2"
+              onclick="convertToHanzi()"
+              aria-label="將注音符號轉換為中文字"
+              disabled
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+              轉換
+            </button>
+            <button
+              class="btn-secondary"
+              onclick="clearInput2()"
+              aria-label="清除注音輸入內容"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/>
+              </svg>
+              清除
+            </button>
+          </div>
+
+          <!-- Hint -->
+          <p style="font-size:0.8rem;color:var(--text-muted);font-family:var(--font-zh);margin-top:12px;line-height:1.6;">
+            💡 聲調輸入方式：空格 = 一聲（或直接寫「（一聲）」）、ˊ = 二聲、ˇ = 三聲、ˋ = 四聲、˙ = 輕聲。<br>
+            系統將自動選取第一個候選字。
+          </p>
+
+          <!-- Result -->
+          <div class="result-section" aria-live="polite" aria-atomic="true">
+            <h2 class="result-title">
+              <span class="icon-badge" aria-hidden="true">字</span>
+              轉換結果
+            </h2>
+            <div class="result-box hanzi-mode" id="result-box-2" aria-label="轉換結果區域">
+              <span class="result-placeholder" id="result-placeholder-2">
+                轉換後的中文字將顯示於此…
+              </span>
+            </div>
+
+            <!-- Selected output textarea -->
+            <div id="hanzi-selected-wrap" style="display:none; margin-top:16px;">
+              <label class="input-label" for="hanzi-output" style="margin-bottom:6px;display:block;">轉換後的中文字（可直接編輯）：</label>
+              <textarea
+                class="styled-textarea"
+                id="hanzi-output"
+                rows="3"
+                style="min-height:80px;"
+                aria-label="中文字輸出框"
+                placeholder="轉換後的中文字將顯示於此…"
+              ></textarea>
+            </div>
+
+            <div class="btn-row" style="margin-top:12px; display:none;" id="copy-row-2">
+              <button
+                class="btn-secondary"
+                onclick="copyResult2()"
+                aria-label="複製中文字結果"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+                複製文字
+              </button>
+              <button
+                class="btn-secondary"
+                onclick="clearSelected2()"
+                aria-label="清除轉換結果"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/>
+                </svg>
+                清除結果
+              </button>
+            </div>
+
+            <!-- Gem 校對引導區塊 (功能二) -->
+            <div class="gem-card" id="gem-card-2" style="display:none;">
+              <div class="gem-card-inner">
+                <div class="gem-header">
+                  <span class="gem-badge">✨ AI 錯別字修復</span>
+                  <p class="gem-desc">
+                    轉出來的文字怪怪的？錯字一堆？別擔心！ ❤️<br />
+                    點擊下方按鈕將自動複製結果，直達 <strong>【錯別字精準校對助理gem】</strong>。跳轉後直接貼上即可，無需輸入任何指令！ AI 不會改動你的用詞，只為你精準修復所有同音錯別字！
+                  </p>
+                </div>
+                <div class="gem-action">
+                  <a
+                    href="https://gemini.google.com/gem/1LmvGvm9pTg8gBrhbgXgKHUmXFlqodccu?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-gem"
+                    onclick="copyAndGoToGem(event, 2)"
+                    aria-label="自動複製結果並前往錯別字精準校對助理 Gem（點及校對）"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                      <polyline points="15 3 21 3 21 9"/>
+                      <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                    點及校對
+                  </a>
+                </div>
+                <div class="gem-notice">
+                  ⚠️ 重要提醒： 開啟 Gem 頁面需要先登入 Google 帳號喔！
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Panel 3: 亂碼 → 中文字 ===== -->
+    <section
+      class="tab-panel"
+      id="panel-3"
+      role="tabpanel"
+      aria-labelledby="tab-btn-3"
+    >
+      <div class="card">
+        <div class="card-inner">
+          <p class="section-label">功能三：英數亂碼 → 中文字（一鍵轉換）</p>
+
+          <!-- Dictionary Loading Status -->
+          <div class="dict-status loading" id="dict-status-3" role="status" aria-live="polite">
+            <div class="dict-spinner" id="dict-spinner-3" aria-hidden="true"></div>
+            <span id="dict-status-text-3">正在載入新酷音字典（libchewing）…</span>
+            <div class="dict-progress" aria-hidden="true">
+              <div class="dict-progress-bar" id="dict-progress-bar-3"></div>
+            </div>
+          </div>
+
+          <!-- Input -->
+          <div class="input-group">
+            <label class="input-label" for="direct-input">
+              請在下方輸入您因為輸入法切換錯誤而打出的英文亂碼：
+            </label>
+            <textarea
+              class="styled-textarea"
+              id="direct-input"
+              placeholder="例如：su3 cl4p（即「你好嗎」的注音鍵位）"
+              aria-label="一鍵轉換亂碼輸入框"
+              autocomplete="off"
+              autocorrect="off"
+              autocapitalize="off"
+              spellcheck="false"
+            ></textarea>
+          </div>
+
+          <!-- Buttons -->
+          <div class="btn-row">
+            <button
+              class="btn-primary"
+              id="convert-btn-3"
+              onclick="convertDirectly()"
+              aria-label="將亂碼直接轉換為中文字"
+              disabled
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12h14M12 5l7 7-7 7"/>
+              </svg>
+              一鍵轉換
+            </button>
+            <button
+              class="btn-secondary"
+              onclick="clearInput3()"
+              aria-label="清除輸入內容"
+            >
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/>
+              </svg>
+              清除
+            </button>
+          </div>
+
+          <!-- Hint -->
+          <p style="font-size:0.8rem;color:var(--text-muted);font-family:var(--font-zh);margin-top:12px;line-height:1.6;">
+            💡 此功能將直接合併「亂碼轉注音」與「注音轉國字」，系統將自動選取第一個候選字。
+          </p>
+
+          <!-- Result -->
+          <div class="result-section" aria-live="polite" aria-atomic="true">
+            <h2 class="result-title">
+              <span class="icon-badge" aria-hidden="true">合</span>
+              一鍵轉換結果
+            </h2>
+            <div class="result-box hanzi-mode" id="result-box-3" aria-label="一鍵轉換結果區域">
+              <span class="result-placeholder" id="result-placeholder-3">
+                轉換後的中文字將顯示於此…
+              </span>
+            </div>
+
+            <!-- Selected output textarea -->
+            <div id="direct-selected-wrap" style="display:none; margin-top:16px;">
+              <label class="input-label" for="direct-output" style="margin-bottom:6px;display:block;">轉換後的中文字（可直接編輯）：</label>
+              <textarea
+                class="styled-textarea"
+                id="direct-output"
+                rows="3"
+                style="min-height:80px;"
+                aria-label="一鍵轉換中文字輸出框"
+                placeholder="轉換後的中文字將顯示於此…"
+              ></textarea>
+            </div>
+
+            <div class="btn-row" style="margin-top:12px; display:none;" id="copy-row-3">
+              <button
+                class="btn-secondary"
+                onclick="copyResult3()"
+                aria-label="複製一鍵轉換結果"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
+                  <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
+                </svg>
+                複製文字
+              </button>
+              <button
+                class="btn-secondary"
+                onclick="clearSelected3()"
+                aria-label="清除一鍵轉換結果"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6"/>
+                </svg>
+                清除結果
+              </button>
+            </div>
+
+            <!-- Gem 校對引導區塊 (功能三) -->
+            <div class="gem-card" id="gem-card-3" style="display:none;">
+              <div class="gem-card-inner">
+                <div class="gem-header">
+                  <span class="gem-badge">✨ AI 錯別字修復</span>
+                  <p class="gem-desc">
+                    轉出來的文字怪怪的？錯字一堆？別擔心！ ❤️<br />
+                    點擊下方按鈕將自動複製結果，直達 <strong>【錯別字精準校對助理gem】</strong>。跳轉後直接貼上即可，無需輸入任何指令！ AI 不會改動你的用詞，只為你精準修復所有同音錯別字！
+                  </p>
+                </div>
+                <div class="gem-action">
+                  <a
+                    href="https://gemini.google.com/gem/1LmvGvm9pTg8gBrhbgXgKHUmXFlqodccu?usp=sharing"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn-gem"
+                    onclick="copyAndGoToGem(event, 3)"
+                    aria-label="自動複製結果並前往錯別字精準校對助理 Gem（點及校對）"
+                  >
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                      <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                      <polyline points="15 3 21 3 21 9"/>
+                      <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                    點及校對
+                  </a>
+                </div>
+                <div class="gem-notice">
+                  ⚠️ 重要提醒： 開啟 Gem 頁面需要先登入 Google 帳號喔！
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Footer ===== -->
+    <footer class="site-footer">
+      <p>錯誤輸入法轉換器 &mdash; 開放、免費、無障礙</p>
+    </footer>
+
+  </div><!-- /.page-wrapper -->
+
+  <script>
+    /* =====================================================
+       注音對照表 (英數鍵 → 注音/聲調)
+       ===================================================== */
+    const BPMF_MAP = {
+      '1': 'ㄅ', 'q': 'ㄆ', 'a': 'ㄇ', 'z': 'ㄈ',
+      '2': 'ㄉ', 'w': 'ㄊ', 's': 'ㄋ', 'x': 'ㄌ',
+      'e': 'ㄍ', 'd': 'ㄎ', 'c': 'ㄏ',
+      'r': 'ㄐ', 'f': 'ㄑ', 'v': 'ㄒ',
+      '5': 'ㄓ', 't': 'ㄔ', 'g': 'ㄕ', 'b': 'ㄖ',
+      'y': 'ㄗ', 'h': 'ㄘ', 'n': 'ㄙ',
+      'u': 'ㄧ', 'j': 'ㄨ', 'm': 'ㄩ',
+      '8': 'ㄚ', 'i': 'ㄛ', 'k': 'ㄜ', ',': 'ㄝ',
+      '9': 'ㄞ', 'o': 'ㄟ', 'l': 'ㄠ', '.': 'ㄡ',
+      '0': 'ㄢ', 'p': 'ㄣ', ';': 'ㄤ', '/': 'ㄥ',
+      '-': 'ㄦ',
+      '3': 'ˇ', '4': 'ˋ', '6': 'ˊ', '7': '˙',
+      ' ': '（一聲）'
+    };
+
+    /* Tone characters */
+    const TONES = new Set(['ˇ', 'ˋ', 'ˊ', '˙', '（一聲）']);
+
+    /* =====================================================
+       Populate reference table
+       ===================================================== */
+    (function buildRefTable() {
+      const grid = document.getElementById('ref-grid-content');
+      const entries = Object.entries(BPMF_MAP);
+      entries.forEach(([key, val]) => {
+        const isTone = TONES.has(val);
+        const item = document.createElement('div');
+        item.className = 'ref-item' + (isTone ? ' tone-item' : '');
+
+        const displayKey = key === ' ' ? '空格' : key;
+        item.innerHTML =
+          `<span class="ref-key">${escapeHtml(displayKey)}</span>` +
+          `<span class="ref-arrow">→</span>` +
+          `<span class="ref-value">${escapeHtml(val)}</span>`;
+        grid.appendChild(item);
+      });
+    })();
+
+    /* =====================================================
+       Tab Switching
+       ===================================================== */
+    function switchTab(n) {
+      document.querySelectorAll('.tab-btn').forEach((btn, i) => {
+        const active = (i + 1 === n);
+        btn.classList.toggle('active', active);
+        btn.setAttribute('aria-selected', active ? 'true' : 'false');
+      });
+      document.querySelectorAll('.tab-panel').forEach((panel, i) => {
+        panel.classList.toggle('active', i + 1 === n);
+      });
+    }
+
+    /* =====================================================
+       Reference Table Toggle
+       ===================================================== */
+    function toggleRefTable() {
+      const wrap = document.getElementById('ref-table');
+      const btn  = document.getElementById('ref-toggle-btn');
+      const open = wrap.classList.toggle('open');
+      btn.classList.toggle('open', open);
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      wrap.setAttribute('aria-hidden', open ? 'false' : 'true');
+    }
+
+    /* =====================================================
+       Conversion Logic
+       ===================================================== */
+    function convertToBopomofo() {
+      const input = document.getElementById('garbled-input').value;
+      const resultBox = document.getElementById('result-box-1');
+      const placeholder = document.getElementById('result-placeholder-1');
+      const rawDiv = document.getElementById('result-raw-1');
+      const copyRow = document.getElementById('copy-row-1');
+
+      if (!input.trim() && input.length === 0) {
+        showToast('⚠️ 請先輸入要轉換的亂碼文字！');
+        document.getElementById('garbled-input').focus();
+        return;
+      }
+
+      /* Clear previous result */
+      resultBox.innerHTML = '';
+      resultBox.classList.remove('has-content');
+      rawDiv.classList.remove('visible');
+      copyRow.style.display = 'none';
+
+      let rawText = '';
+      let hasResult = false;
+      let delay = 0;
+
+      for (let i = 0; i < input.length; i++) {
+        const ch = input[i];
+        const lower = ch.toLowerCase();
+        const mapped = BPMF_MAP[lower] ?? BPMF_MAP[ch];
+
+        const span = document.createElement('span');
+        span.style.animationDelay = delay + 'ms';
+        delay += 30;
+
+        if (mapped !== undefined) {
+          span.className = 'bpmf-token' + (TONES.has(mapped) ? ' tone' : '');
+          // 空格顯示
+          if (ch === ' ') {
+            span.className = 'bpmf-token space-token';
+            span.textContent = mapped;
+            span.setAttribute('aria-label', '一聲（空格）');
+          } else {
+            span.textContent = mapped;
+            span.setAttribute('aria-label', mapped);
+          }
+          rawText += mapped;
+          hasResult = true;
+        } else {
+          /* 未知字元：原樣顯示並標記 */
+          span.className = 'bpmf-token unknown';
+          span.textContent = ch;
+          span.setAttribute('aria-label', '無法識別的字元：' + ch);
+          span.title = '此字元無對應注音';
+          rawText += ch;
+          hasResult = true;
+        }
+
+        resultBox.appendChild(span);
+      }
+
+      if (hasResult) {
+        resultBox.classList.add('has-content');
+        rawDiv.textContent = '純文字：' + rawText;
+        rawDiv.classList.add('visible');
+        copyRow.style.display = 'flex';
+        /* store raw text on element for copy */
+        resultBox.dataset.rawText = rawText;
+      } else {
+        const ph = document.createElement('span');
+        ph.className = 'result-placeholder';
+        ph.textContent = '未輸入任何內容。';
+        resultBox.appendChild(ph);
+      }
+    }
+
+    /* ===== Clear Input ===== */
+    function clearInput1() {
+      document.getElementById('garbled-input').value = '';
+      const resultBox = document.getElementById('result-box-1');
+      resultBox.innerHTML = '<span class="result-placeholder" id="result-placeholder-1">轉換後的注音符號將顯示於此…</span>';
+      resultBox.classList.remove('has-content');
+      document.getElementById('result-raw-1').classList.remove('visible');
+      document.getElementById('copy-row-1').style.display = 'none';
+      document.getElementById('garbled-input').focus();
+    }
+
+    /* ===== Copy Result ===== */
+    function copyResult(panelId) {
+      const box = document.getElementById('result-box-' + panelId);
+      const text = box.dataset.rawText || '';
+      if (!text) { showToast('沒有可複製的結果。'); return; }
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('✅ 已複製到剪貼簿！');
+      }).catch(() => {
+        /* Fallback */
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast('✅ 已複製到剪貼簿！');
+      });
+    }
+
+    /* ===== Toast ===== */
+    let toastTimer = null;
+    function showToast(msg) {
+      const el = document.getElementById('toast');
+      el.textContent = msg;
+      el.classList.add('show');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => el.classList.remove('show'), 2800);
+    }
+
+    /* ===== Keyboard shortcut: Enter to convert ===== */
+    document.getElementById('garbled-input').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault();
+        convertToBopomofo();
+      }
+    });
+
+    /* ===== Utility ===== */
+    function escapeHtml(str) {
+      return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+    }
+
+    /* =====================================================
+       功能二：注音 → 中文字 (Bopomofo → Hanzi)
+
+       字典結構：HANZI_DICT[注音串] = { 聲調 : [字陣列], … }
+       聲調 key: '1'=一聲, '2'=二聲(ˊ), '3'=三聲(ˇ), '4'=四聲(ˋ), '5'=輕聲(˙)
+
+       資料來源：libchewing（新酷音）word.csv
+       授權：LGPL-2.1
+       CDN：jsDelivr (github mirror)
+       ===================================================== */
+
+    /* =====================================================
+       字典載入邏輯
+       ===================================================== */
+    let HANZI_DICT = {};
+    let dictLoaded = false;
+
+    /* 注音末尾聲調符號 → key 對照 */
+    const CSV_TONE_MAP = { 'ˊ': '2', 'ˇ': '3', 'ˋ': '4', '˙': '5' };
+
+    function parseCsvLine(line) {
+      /* 格式：字,頻率,注音（含聲調） */
+      const parts = line.split(',');
+      if (parts.length < 3) return null;
+      const hanzi   = parts[0].trim();
+      const reading = parts[2].trim();
+      /* 只取單一字（排除注音符號本身作為「字」的行） */
+      if (!hanzi || hanzi.length !== 1) return null;
+      /* 解析聲調：看最後一個字元是否為聲調符號 */
+      const lastCh = reading.slice(-1);
+      let tone;
+      let syllable;
+      if (CSV_TONE_MAP[lastCh]) {
+        tone     = CSV_TONE_MAP[lastCh];
+        syllable = reading.slice(0, -1);
+      } else {
+        tone     = '1'; /* 無聲調符號 = 一聲 */
+        syllable = reading;
+      }
+      if (!syllable) return null;
+      return { hanzi, syllable, tone };
+    }
+
+    function updateDictStatus(state, text, progress) {
+      ['2', '3'].forEach(n => {
+        const statusEl  = document.getElementById('dict-status-' + n);
+        const textEl    = document.getElementById('dict-status-text-' + n);
+        const spinnerEl = document.getElementById('dict-spinner-' + n);
+        const barEl     = document.getElementById('dict-progress-bar-' + n);
+        if (!statusEl) return;
+        statusEl.className = 'dict-status ' + state;
+        textEl.textContent  = text;
+        if (barEl && progress !== undefined) barEl.style.width = progress + '%';
+        if (spinnerEl) spinnerEl.style.display = (state === 'loading') ? '' : 'none';
+      });
+    }
+
+    function enableDictButtons() {
+      const btn2 = document.getElementById('convert-btn-2');
+      const btn3 = document.getElementById('convert-btn-3');
+      if (btn2) btn2.disabled = false;
+      if (btn3) btn3.disabled = false;
+    }
+
+    async function loadDictionary() {
+      const CDN_URL = 'https://cdn.jsdelivr.net/gh/chewing/libchewing-data@main/dict/chewing/word.csv';
+      updateDictStatus('loading', '正在連線字典伺服器…', 0);
+      try {
+        const response = await fetch(CDN_URL);
+        if (!response.ok) throw new Error('HTTP ' + response.status);
+
+        /* 讀取串流並追蹤進度 */
+        const contentLength = response.headers.get('Content-Length');
+        const total = contentLength ? parseInt(contentLength, 10) : 0;
+        const reader = response.body.getReader();
+        const decoder = new TextDecoder('utf-8');
+        let received = 0;
+        let rawText = '';
+
+        while (true) {
+          const { done, value } = await reader.read();
+          if (done) break;
+          received += value.length;
+          rawText += decoder.decode(value, { stream: true });
+          if (total > 0) {
+            updateDictStatus('loading', '正在下載字典…', Math.round(received / total * 60));
+          }
+        }
+        rawText += decoder.decode();
+
+        updateDictStatus('loading', '正在建立索引…', 65);
+
+        /* 解析 CSV — 用 setTimeout 讓 UI 能先更新 */
+        await new Promise(resolve => setTimeout(resolve, 0));
+
+        const lines = rawText.split('\n');
+        const dict = {};
+        let processed = 0;
+        const CHUNK = 2000;
+
+        const processChunk = () => {
+          const end = Math.min(processed + CHUNK, lines.length);
+          for (let i = processed; i < end; i++) {
+            const line = lines[i].trim();
+            if (!line || line.startsWith('#')) continue;
+            const entry = parseCsvLine(line);
+            if (!entry) continue;
+            const { hanzi, syllable, tone } = entry;
+            if (!dict[syllable]) dict[syllable] = {};
+            if (!dict[syllable][tone]) dict[syllable][tone] = [];
+            dict[syllable][tone].push(hanzi);
+          }
+          processed = end;
+          const pct = 65 + Math.round(processed / lines.length * 33);
+          updateDictStatus('loading', '正在建立索引…', pct);
+          if (processed < lines.length) {
+            return new Promise(r => setTimeout(() => processChunk().then(r), 0));
+          }
+          return Promise.resolve();
+        };
+        await processChunk();
+
+        HANZI_DICT = dict;
+        dictLoaded = true;
+        updateDictStatus('ready', '✓ 字典載入完成（libchewing，共 ' + Object.keys(dict).length + ' 個音節）', 100);
+        enableDictButtons();
+
+      } catch (err) {
+        console.error('字典載入失敗：', err);
+        updateDictStatus('error', '⚠ 字典載入失敗，請重新整理頁面。（' + err.message + '）', 0);
+      }
+    }
+
+    /* 頁面載入後立即開始取得字典 */
+    loadDictionary();
+
+    const TONE_SYMBOL_MAP = {
+      '（一聲）': '1', 'ˊ': '2', 'ˇ': '3', 'ˋ': '4', '˙': '5'
+    };
+    const TONE_DISPLAY = {
+      '1': '（一聲）', '2': 'ˊ', '3': 'ˇ', '4': 'ˋ', '5': '˙'
+    };
+
+    /* 注音聲符/韻符集合，用於解析輸入 */
+    const BPMF_INITIALS = new Set(['ㄅ','ㄆ','ㄇ','ㄈ','ㄉ','ㄊ','ㄋ','ㄌ','ㄍ','ㄎ','ㄏ','ㄐ','ㄑ','ㄒ','ㄓ','ㄔ','ㄕ','ㄖ','ㄗ','ㄘ','ㄙ']);
+    const BPMF_MEDIALS  = new Set(['ㄧ','ㄨ','ㄩ']);
+    const BPMF_FINALS   = new Set(['ㄚ','ㄛ','ㄜ','ㄝ','ㄞ','ㄟ','ㄠ','ㄡ','ㄢ','ㄣ','ㄤ','ㄥ','ㄦ']);
+    const BPMF_TONES    = new Set(['ˊ','ˇ','ˋ','˙','（一聲）']);
+    const BPMF_ALL      = new Set([...BPMF_INITIALS, ...BPMF_MEDIALS, ...BPMF_FINALS]);
+
+
+    /* =====================================================
+       Feature 2 Logic: Bopomofo → Hanzi
+       ===================================================== */
+    function parseBpmf(str) {
+      const results = [];
+      let i = 0;
+      while (i < str.length) {
+        let char = str[i];
+
+        if (BPMF_ALL.has(char)) {
+          let syllable = char;
+          i++;
+          // 繼續讀取直到不是注音（組成一個音節）
+          while (i < str.length && BPMF_ALL.has(str[i])) {
+            syllable += str[i];
+            i++;
+          }
+          // 檢查聲調
+          let tone = '1'; // 預設一聲
+          if (i < str.length) {
+            // 檢查是否為聲調符號
+            let nextChar = str[i];
+            // 處理「（一聲）」這種特殊標記
+            if (nextChar === '（') {
+              let sub = str.substring(i, i + 4);
+              if (sub === '（一聲）') {
+                tone = '1';
+                i += 4;
+                results.push({ syllable: syllable, tone: tone }); // 修正：補上遺漏的 push
+              } else {
+                results.push({ syllable: syllable, tone: tone });
+              }
+            } else if (BPMF_TONES.has(nextChar)) {
+              tone = TONE_SYMBOL_MAP[nextChar];
+              i++;
+              results.push({ syllable: syllable, tone: tone });
+            } else if (nextChar === ' ') {
+              // 空格視為一聲
+              tone = '1';
+              i++;
+              results.push({ syllable: syllable, tone: tone });
+            } else {
+              results.push({ syllable: syllable, tone: tone });
+            }
+          } else {
+            results.push({ syllable: syllable, tone: tone });
+          }
+        } else if (char === ' ' || char === '\n' || char === '\t') {
+          // 忽略空白字元
+          i++;
+        } else {
+          // 未知字元
+          results.push({ syllable: char, unknown: true });
+          i++;
+        }
+      }
+      return results;
+    }
+
+    function convertToHanzi() {
+      const input = document.getElementById('bpmf-input').value;
+      const resultBox = document.getElementById('result-box-2');
+      const placeholder = document.getElementById('result-placeholder-2');
+      const copyRow = document.getElementById('copy-row-2');
+      const selectedWrap = document.getElementById('hanzi-selected-wrap');
+      const outputTA = document.getElementById('hanzi-output');
+
+      if (!input.trim()) {
+        showToast('⚠️ 請先輸入注音符號！');
+        document.getElementById('bpmf-input').focus();
+        return;
+      }
+
+      /* 清除舊結果 */
+      resultBox.innerHTML = '';
+      resultBox.classList.remove('has-content');
+      copyRow.style.display = 'none';
+      selectedWrap.style.display = 'none';
+      outputTA.value = '';
+      document.getElementById('gem-card-2').style.display = 'none';
+
+      const syllables = parseBpmf(input);
+      let hasContent = false;
+      let delay = 0;
+      let finalString = "";
+
+      syllables.forEach(({ syllable, tone, unknown }) => {
+        delay += 35;
+
+        /* 未知字元 */
+        if (unknown) {
+          const span = document.createElement('span');
+          span.className = 'hanzi-unknown';
+          span.style.animationDelay = delay + 'ms';
+          span.textContent = syllable;
+          span.title = '非注音字元';
+          resultBox.appendChild(span);
+          finalString += syllable;
+          hasContent = true;
+          return;
+        }
+
+        const entry = HANZI_DICT[syllable];
+        const group = document.createElement('div');
+        group.className = 'hanzi-syllable-group';
+        group.style.animationDelay = delay + 'ms';
+
+        /* 音節標籤 */
+        const toneDisp = tone ? TONE_DISPLAY[tone] : '';
+        const label = document.createElement('div');
+        label.className = 'hanzi-syllable-label';
+        label.textContent = syllable + toneDisp;
+        group.appendChild(label);
+
+        /* 音調徽章 */
+        const toneBadge = document.createElement('div');
+        toneBadge.className = 'hanzi-tone-badge';
+        toneBadge.textContent = toneDisp || '（無聲調）';
+        group.appendChild(toneBadge);
+
+        const candidateWrap = document.createElement('div');
+        candidateWrap.className = 'hanzi-candidates';
+
+        if (!entry || !tone || !entry[tone] || entry[tone].length === 0) {
+          /* 找不到對應字 */
+          const noResult = document.createElement('div');
+          noResult.style.cssText = 'font-size:0.8rem;color:var(--accent-tertiary);font-family:var(--font-zh);text-align:center;';
+          noResult.textContent = '（無資料）';
+          candidateWrap.appendChild(noResult);
+          finalString += "？"; // 找不到字時用問號代替
+        } else {
+          /* 去除重複並取第一個 */
+          const chars = [...new Set(entry[tone])];
+          const firstChar = chars[0];
+          
+          const token = document.createElement('div');
+          token.className = 'hanzi-token';
+          token.textContent = firstChar;
+          token.setAttribute('aria-label', '轉換結果：' + firstChar);
+          candidateWrap.appendChild(token);
+          
+          finalString += firstChar;
+        }
+
+        group.appendChild(candidateWrap);
+        resultBox.appendChild(group);
+        hasContent = true;
+      });
+
+      if (hasContent) {
+        resultBox.classList.add('has-content');
+        selectedWrap.style.display = 'block';
+        copyRow.style.display = 'flex';
+        outputTA.value = finalString;
+        document.getElementById('gem-card-2').style.display = 'block';
+      } else {
+        const ph = document.createElement('span');
+        ph.className = 'result-placeholder';
+        ph.textContent = '未識別到任何注音符號。';
+        resultBox.appendChild(ph);
+      }
+    }
+
+    /* ──────────────────────────────────────────────────────
+       輔助函式
+    ────────────────────────────────────────────────────── */
+    function clearInput2() {
+      document.getElementById('bpmf-input').value = '';
+      const resultBox = document.getElementById('result-box-2');
+      resultBox.innerHTML = '<span class="result-placeholder" id="result-placeholder-2">轉換後的中文字將顯示於此…</span>';
+      resultBox.classList.remove('has-content');
+      document.getElementById('copy-row-2').style.display = 'none';
+      document.getElementById('hanzi-selected-wrap').style.display = 'none';
+      document.getElementById('hanzi-output').value = '';
+      document.getElementById('gem-card-2').style.display = 'none';
+      document.getElementById('bpmf-input').focus();
+    }
+
+    function copyResult2() {
+      const text = document.getElementById('hanzi-output').value;
+      if (!text) { showToast('沒有已選取的文字可複製。'); return; }
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('✅ 已複製到剪貼簿！');
+      }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast('✅ 已複製到剪貼簿！');
+      });
+    }
+
+    function clearSelected2() {
+      document.getElementById('hanzi-output').value = '';
+    }
+
+    /* =====================================================
+       功能三：一鍵轉換 (Garbled → Bopomofo → Hanzi)
+       ===================================================== */
+    function convertDirectly() {
+      const input = document.getElementById('direct-input').value;
+      const resultBox = document.getElementById('result-box-3');
+      const copyRow = document.getElementById('copy-row-3');
+      const selectedWrap = document.getElementById('direct-selected-wrap');
+      const outputTA = document.getElementById('direct-output');
+
+      if (!input.trim()) {
+        showToast('⚠️ 請先輸入亂碼文字！');
+        document.getElementById('direct-input').focus();
+        return;
+      }
+
+      /* 1. 先將亂碼轉成注音字串 (比照功能一邏輯) */
+      let bopomofoStr = '';
+      for (let i = 0; i < input.length; i++) {
+        const ch = input[i];
+        const lower = ch.toLowerCase();
+        const mapped = BPMF_MAP[lower] ?? BPMF_MAP[ch];
+        if (mapped !== undefined) {
+          bopomofoStr += mapped;
+        } else {
+          bopomofoStr += ch;
+        }
+      }
+
+      /* 2. 將注音字串轉成中文字 (比照功能二邏輯) */
+      resultBox.innerHTML = '';
+      resultBox.classList.remove('has-content');
+      copyRow.style.display = 'none';
+      selectedWrap.style.display = 'none';
+      outputTA.value = '';
+      document.getElementById('gem-card-3').style.display = 'none';
+
+      const syllables = parseBpmf(bopomofoStr);
+      let hasContent = false;
+      let delay = 0;
+      let finalString = "";
+
+      syllables.forEach(({ syllable, tone, unknown }) => {
+        delay += 35;
+        if (unknown) {
+          const span = document.createElement('span');
+          span.className = 'hanzi-unknown';
+          span.style.animationDelay = delay + 'ms';
+          span.textContent = syllable;
+          resultBox.appendChild(span);
+          finalString += syllable;
+          hasContent = true;
+          return;
+        }
+
+        const entry = HANZI_DICT[syllable];
+        const group = document.createElement('div');
+        group.className = 'hanzi-syllable-group';
+        group.style.animationDelay = delay + 'ms';
+
+        const toneDisp = tone ? TONE_DISPLAY[tone] : '';
+        const label = document.createElement('div');
+        label.className = 'hanzi-syllable-label';
+        label.textContent = syllable + toneDisp;
+        group.appendChild(label);
+
+        const toneBadge = document.createElement('div');
+        toneBadge.className = 'hanzi-tone-badge';
+        toneBadge.textContent = toneDisp || '（無聲調）';
+        group.appendChild(toneBadge);
+
+        const candidateWrap = document.createElement('div');
+        candidateWrap.className = 'hanzi-candidates';
+
+        if (!entry || !tone || !entry[tone] || entry[tone].length === 0) {
+          const noResult = document.createElement('div');
+          noResult.style.cssText = 'font-size:0.8rem;color:var(--accent-tertiary);font-family:var(--font-zh);text-align:center;';
+          noResult.textContent = '（無資料）';
+          candidateWrap.appendChild(noResult);
+          finalString += "？";
+        } else {
+          const firstChar = [...new Set(entry[tone])][0];
+          const token = document.createElement('div');
+          token.className = 'hanzi-token';
+          token.textContent = firstChar;
+          token.setAttribute('aria-label', '轉換結果：' + firstChar);
+          candidateWrap.appendChild(token);
+          finalString += firstChar;
+        }
+        group.appendChild(candidateWrap);
+        resultBox.appendChild(group);
+        hasContent = true;
+      });
+
+      if (hasContent) {
+        resultBox.classList.add('has-content');
+        selectedWrap.style.display = 'block';
+        copyRow.style.display = 'flex';
+        outputTA.value = finalString;
+        document.getElementById('gem-card-3').style.display = 'block';
+      }
+    }
+
+    function clearInput3() {
+      document.getElementById('direct-input').value = '';
+      const resultBox = document.getElementById('result-box-3');
+      resultBox.innerHTML = '<span class="result-placeholder" id="result-placeholder-3">轉換後的中文字將顯示於此…</span>';
+      resultBox.classList.remove('has-content');
+      document.getElementById('copy-row-3').style.display = 'none';
+      document.getElementById('direct-selected-wrap').style.display = 'none';
+      document.getElementById('direct-output').value = '';
+      document.getElementById('gem-card-3').style.display = 'none';
+      document.getElementById('direct-input').focus();
+    }
+
+    function copyResult3() {
+      const text = document.getElementById('direct-output').value;
+      if (!text) { showToast('沒有轉換結果可複製。'); return; }
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('✅ 已複製到剪貼簿！');
+      }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        showToast('✅ 已複製到剪貼簿！');
+      });
+    }
+
+    function clearSelected3() {
+      document.getElementById('direct-output').value = '';
+    }
+
+    /* =====================================================
+       Gem 校對跳轉與自動複製邏輯
+       ===================================================== */
+    function copyAndGoToGem(event, panelId) {
+      if (event) event.preventDefault();
+      const outputId = (panelId === 2) ? 'hanzi-output' : 'direct-output';
+      const text = document.getElementById(outputId).value;
+      const gemUrl = 'https://gemini.google.com/gem/1LmvGvm9pTg8gBrhbgXgKHUmXFlqodccu?usp=sharing';
+
+      const openGem = () => {
+        window.open(gemUrl, '_blank', 'noopener,noreferrer');
+      };
+
+      if (!text) {
+        showToast('⚠️ 目前沒有轉換結果可複製，即將直接開啟 Gem…');
+        openGem();
+        return;
+      }
+
+      navigator.clipboard.writeText(text).then(() => {
+        showToast('✅ 已自動複製結果！正在前往 Gem 校對…');
+        openGem();
+      }).catch(() => {
+        try {
+          const ta = document.createElement('textarea');
+          ta.value = text;
+          ta.style.position = 'fixed';
+          ta.style.opacity = '0';
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          showToast('✅ 已自動複製結果！正在前往 Gem 校對…');
+        } catch (err) {
+          console.error(err);
+        }
+        openGem();
+      });
+    }
+
+    /* 鍵盤快捷鍵：Ctrl/Cmd + Enter 轉換 */
+    document.getElementById('bpmf-input').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault();
+        convertToHanzi();
+      }
+    });
+    document.getElementById('direct-input').addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault();
+        convertDirectly();
+      }
+    });
+  </script>
+</body>
+</html>
